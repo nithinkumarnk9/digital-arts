@@ -2,9 +2,349 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nithin kumar arts</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<style>
+    .faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px; /* Adjust based on the answer content length */
+}
+    .gallery img {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    }
+    .gallery img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+    }
+    .gallery .card {
+    border: none;
+    position: relative;
+    overflow: hidden;
+    }
+    .gallery .card .caption {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    }
+    .gallery .card:hover .caption {
+    opacity: 1;
+    }
+    .gallery .card:hover . {
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+    }
+   .faq-item {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      cursor: pointer;
+      background-color: #f9f9f9;
+    }
+    .faq-item:hover {
+      background-color: #f1f1f1;
+    }
+    .faq-answer {
+      display: none;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    .faq-container {
+      width: 80%;
+      margin: 50px auto;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .rating {
+    color: #FFD700;
+    }
+</style>
 <body>
- <h1>this is nithin kumar arts </h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">ART WORLD</a>
+    <button class="navbar-toggler" type="button" data-toggler="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Hero Section -->
+<header class="jumbotron jumbotron-fluid text-center bg-dark text-white" style="background-image: url('your-image.jpg'); background-size: cover;">
+    <div class="container">
+        <h1 class="display-4">Welcome to My Art World</h1>
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdMCZ9spCVa3_cHCdKDjoXGLPN5MFk2kpoQFOwikDdvkCJRIV72sr_CUqbjI92orP5YnYwajoyMVA-f6BWLVyGDXEIOPUbNJvzza1mpngoTBkGXyg-bw97jDOzDZ7DknhCJ1b-qYW_K9oEqg83CbqVdGNE8cmC4YYrP1zniQPLQCziSYYKs8ijHY7tuYBD/s313/365882cfd041660ed8b885df5f5a3e5f.jpg" class="rounded-circle" alt="Round Image" width="200" height="200">
+        <p class="lead"> A showcase of my finest works </p>
+    </div>
+</header>
+<!-- About Section -->
+<section id="about" class="py-5">
+    <div class="container">
+        <h2 class="text-center">About Me</h2>
+        <p class="text-center">Arts is a form of creative expression that conveys ideas, emotions, and perspectives through various mediums such as painting, sculpture, music, dance, literature, and more. It reflects cultural, social, and personal experiences, allowing both the artist and the audience to explore new meanings, evoke emotions, and inspire change. Arts plays a vital role in human communication, transcending language and geographical barriers to connect people across time and space. </p>
+    </div>
+</section>
+<!-- Portfolio Section -->
+  <div class="container my-4">
+    <div class="row gallery">
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0dVZ41rsTJhbvNBmFh392bw0PQI4nBSFQoVeSDtfZOEdTeHL99C8z5p8U44rOsnS9t1ZY65CNg_dJabM3fNe179yWh04deOJruaJo8iiezZGmyRzvTfVydimpAyn7y1SV_CwffYirkIyfUcMxynZn4eg4un7MXkaYOLRBRn42UJIRivwKS01ynIb-jprH/s225/images%20%285%29.jpeg" class="card-img-top" alt="Gallery Image 1">
+          <div class="caption">MUSICAL ART</div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg40UeeHd1I8S_oQ5BSMV1cFuFcWBnzb4oictYIu8DtTepkaZ56xvPS-4aBDLg-IpCatdPzkjBUMd59AG7zs3j3iD5kNpp9-zXZQ4jZsE9pBPE-JSJTmLxmHq_gRsEP0YS0idrt_3I0rhihyphenhyphenOECPNsPoDnik_u-ApyhXyKRt9iW5sDDnn4WfMGs_pTB9tGE/s500/Family-Love-Abstract-Sculpture-1-500x500.jpg" class="card-img-top" alt="Gallery Image 2">
+          <div class="caption">SCULPTURE ART</div>
+        </div>
+      </div>
+      <div  class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQ6mwXzipL16A-mmG7BvdCoPA5FrmfXHziUYjM32nmnDlIN3ic7fdN9bAbiJOPaANgmzsJ_dyz-CtaVchywmiz6RIReysj2rvovaLFGE-3s1bA07dZq2_r56j884u2k7XGjSwBk28slGgsSnH5oVgMiL7Awn5vcto_B_ntI6P1JOLC-GpE1DwMdQVSdufC/s550/CHSDM-B6B16B09AF992-000001.jpg" class="card-img-top" alt="Gallery Image 3">
+          <div class="caption">ARCHITECTURE ART</div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihyg426CHpnAsNO87l0WHQk_oNSPJbBETEtGShCpFRJB-edkOpxC6BmXshNTSWgIu4fV_tuVxwB68Kz-TJIkp8CJfE5mpNFOYqf1cly-McweInLc8KQj4WQ-AwOvxz2CiJ7yNbl6ygN4BO48L4yH-Cm1Ofz-R1rAxXZy0RMJeHwrUAInwqCKfeJ83vP3_U/s4368/pexels-steve-1585325.jpg" class="card-img-top" alt="Gallery Image 4">
+          <div class="caption">PAINTING ARTS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <div class="container my-4">
+    <div class="row gallery">
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXhzkzZaLOC6Fq7tRvnedxM0lyqrXHgBB9Y_sS8tBGju4qv8EHbwuEvE34eV3fAwFXR2flka31mHT0l7rVkZ8mKoDMmal5pyjqTEgnxF9jgTMYrCxuOw2cl-m_nVWjoQZbLLfJaIUsPxbXf23R3Vo53NTnvHU5PZ1c6LJn7NoFCxxDTStjjRKyKK3vun2g/s3000/premium_photo-1682125139523-92d7def89cd1.jpeg" class="card-img-top" alt="Gallery Image 1">
+          <div class="caption">DESIGN ARTS</div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXzGL4_1kHE5aobSEA9xcJRIdWMnOzjF8W0I8JkVFrjzQTiVE1Hu6hWcFuYo44ryc_InP-rnWN0QkWPQLTSHZZi8i1jiV53MQJNxvT061fxNZFd9godm_A5XSjbqHCSWwHR2lgRDYx47t0tiHPgOA4lnyOG-vFwz3uOmFiKODxBMyw273vi1AZ57F_mTJB/s236/download.jpeg" class="card-img-top" alt="Gallery Image 2">
+          <div class="caption">LITERATURE ARTS</div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3G2PqwuoVTYJAiioW1MbmGWVVezyiSDsirgOu9v9zJ6U41eWedvKSxy8L2tJjwWLzutLhmO4-DzxAtkF21DLmOEJFN9SzSEt52VqI89x9PGNSMFGUXxzACfWrfx_wTKE5zvtIyz9yWLynV3fhGg4QH8Maudixc0dtCJng2VM73GM0Ffj3bTTBCxlc8nc1/s220/220px-Chinese_-_Wine_Pot_-_Walters_44569_-_Side_%28cropped%29.jpg" class="card-img-top" alt="Gallery Image 3">
+          <div class="caption">DECORATIVE ARTS</div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjagR-12zwJp0kU5WYQ_brpBigZ32sQspEGRLlHY603Mmo5IwSWba7iJ7fo4xmOF9kJFSlF4iL2ujujxVYQhcuVhNvrkWjnBvVdJpe63mXdbbfPgXpmq8UNmiOxw6cFYwciuwU9hiWJw9MtIgi5nMKNW6KDPyej51IcIGML4RFJiLRzjhS5hQcCkyYJav3c/s231/images%20%286%29.jpeg" class="card-img-top" alt="Gallery Image 4">
+          <div class="caption">ARTS AND CRAFTS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Frequently Asked Questions About Arts -->
+<div class="faq-container">
+    <h1>Frequently Asked Questions about Arts</h1>
+
+    <!-- FAQ Item 1 -->
+    <div class="faq-item">
+      <div class="faq-question">What are the different types of visual arts?</div>
+      <div class="faq-answer">
+        Visual arts include painting, drawing, sculpture, photography, printmaking, and digital art. Each type has different styles and mediums, making visual arts a vast category.
+      </div>
+    </div>
+
+    <!-- FAQ Item 2 -->
+    <div class="faq-item">
+      <div class="faq-question">What are performing arts?</div>
+      <div class="faq-answer">
+        Performing arts involve disciplines like theater, dance, music, and opera. These forms of art are typically performed live and focus on artistic expression through movement, acting, and music.
+      </div>
+    </div>
+
+    <!-- FAQ Item 3 -->
+    <div class="faq-item">
+      <div class="faq-question">How is digital art different from traditional art?</div>
+      <div class="faq-answer">
+        Digital art is created using digital tools and software, whereas traditional art uses physical materials like paint, canvas, and paper. Digital art allows for more flexibility in editing and production.
+      </div>
+    </div>
+
+  </div>
+<!-- Reviews and Ratings -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Customer Reviews about Arts</h2>
+</div>
+<!-- Reviews Row -->
+<div class="row">
+    <!-- Review 1 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidpbFS-N0-lVWpwEHCrymfXT6r6KEonPDIO__CqKjkmzNjUeE3hW9_Kx2FAJ8540jGj5t7COWn6hyYt7XpfmNWCAtEc9zQaQl4XAHK1n6keC8sOSZmBsCrk2ScIwfSFMZ-NjI5G381RoXbvby6B_2oW2CLbeGvhZNzESffrKOidtoqi6g5QiadjsyNuTh_/s3000/photo-1522529599102-193c0d76b5b6.jpeg" class="card-img-top" alt="Art piece">
+            <div class="card-body">
+                <h6 class="card-title">John Doe</h6>
+                <div class="rating">
+                    <!-- Star rating -->
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="card-text mt-2">The abstract painting I purchased has brightened up my living room! I love the vibrant colors and the artist's unique style. </p>
+            </div>
+        </div>
+    </div>
+    <!-- Review Rating --->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEissU83lyhgCwQbgTQnPfu75-19Oi21wBffrhahesQmqOcmb_S_jHnmivtuWBSSnbhwB287Lv9zUjdBEwitpwyLIz2wDld3lekHsX6PslsnAQxH5FlorOmyzxXN5K46PtgEPsS7JEG0QgSxlUhwFdHrnYbEcMp602-9FYB97CMaCJ_2d32l60XzLKeY9wrr/s612/istockphoto-1392528328-612x612.jpg" class="card-img-top" alt="Art">
+            <div class="card-body">
+                <h6 class="card-title">Emily Johnson</h6>
+            </div>
+            <div class="rating">
+                <!-- Star Rating -->
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p class="card-text mt-2">
+                The sculpture is beautifully crafted and adds a modern touch to my office. The delivery was prompt and the artist was responsive.
+            </p>
+        </div>
+    </div>
+    <!-- Review 3 -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFocv5hcMUnqbET4XbD1_q91dTL4G62e_-mL-5GymBP_-rUEiFygKcbwSbRKyZCmUyVrTo-sofQReVbmGIe9sDFS_zcuDtLc-uq2QCuEUPrszybCH2QFLWJVyHBgFV0RrtVWlrFtlhzVTEKgMTSd4iY3hG_BQ_s-qsWAn-kJdwbpFi-iy23PMe9cS8UvsN/s488/360_F_640070383_9LJ3eTRSvOiwKyrmBYgcjhSlckDnNcxl.jpg" class="card-img-top" alt="Art 3">
+            <div class="card-body">
+                <h6 class="card-title">Micheal Smith</h6>
+                <div class="rating">
+                    <!-- Star rating -->
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="card-text mt-2">
+                    The digital art print is good, but I was expecting better quality from the print resolution. Overall, still a nice place.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Us -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <form>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+        </div>
+        <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="email" class="form-control" id="subject" placeholder="Subject" required>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<!-- Footer -->
+<footer class="bg-dark text-white pt-4">
+    <div class="container">
+        <div class="row">
+            <!-- Company Info -->
+            <div class="col-md-4">
+                <h5>ART WORLD</h5>
+                <p>
+                    Visakhapatnam<br>
+                    Andhra, Pradesh, India<br>
+                    Phone: +91 7680034566<br>
+                    Email: nithinkumarnk999@gmail.com
+                </p>
+            </div>
+            <!-- Useful links -->
+            <div class="col-md-4">
+                <h5>Useful Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{ url_for('about') }}" class="text-white">About</a></li>
+                    <li><a href="{{ url_for('contact') }}" class="text-white">Contact</a></li>
+                </ul>
+            </div>
+            <!-- Social media -->
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <a href="#" class="text-white me-2">
+                    <i class="bi bi-facebook"></i>Facebook
+                </a><br>
+                <a href="#" class="text-white me-2">
+                    <i class="bi bi-twitter"></i> Twitter
+                </a><br>
+                <a href="#" class="text-white me-2">
+                    <i class="bi bi-instagram"></i> Instagram
+                </a><br>
+                <a href="#" class="text-white me-2">
+                    <i class="bi bi-linkedin"></i> Linkedin
+                </a>
+            </div>
+        </div>
+        <div class="text-center pt-3">
+            <p>&copy; 2024 ART WORLD. All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+<!-- Bootstrap JS and dependencies -->
+<script>
+    // JavaScript to toggle FAQ answers
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
